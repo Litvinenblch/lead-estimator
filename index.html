@@ -1070,10 +1070,17 @@ async function loadSlack() {
 
   try {
     // Step 1: get channel ID
-    const listResp = await fetch(`https://slack.com/api/conversations.list?limit=200&types=public_channel,private_channel`, {
-      headers: { 'Authorization': `Bearer ${token}` }
-    });
-    const listData = await listResp.json();
+    // proxy через Netlify Function чтобы обойти CORS
+    const proxyCall = async (path, params) => {
+      const resp = await fetch('/.netlify/functions/slack', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, path, params })
+      });
+      return resp.json();
+    };
+
+    const listData = await proxyCall('conversations.list', { limit: 200, types: 'public_channel,private_channel' });
     if (!listData.ok) throw new Error('Не удалось получить список каналов: ' + listData.error);
 
     const found = listData.channels.find(c => c.name === channel || c.name_normalized === channel);
@@ -1082,11 +1089,7 @@ async function loadSlack() {
     const channelId = found.id;
     setSlackStatus('Канал найден, загружаем сообщения...', '');
 
-    // Step 2: fetch messages
-    const histResp = await fetch(`https://slack.com/api/conversations.history?channel=${channelId}&limit=200`, {
-      headers: { 'Authorization': `Bearer ${token}` }
-    });
-    const histData = await histResp.json();
+    const histData = await proxyCall('conversations.history', { channel: channelId, limit: 200 });
     if (!histData.ok) throw new Error('Ошибка загрузки: ' + histData.error);
 
     const messages = histData.messages || [];
