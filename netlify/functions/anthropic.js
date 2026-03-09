@@ -5,9 +5,15 @@ exports.handler = async (event) => {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'
   };
+
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
+
+  if (!event.body) {
+    return { statusCode: 400, headers, body: JSON.stringify({ error: 'No body' }) };
+  }
+
   try {
     const body = JSON.parse(event.body);
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
