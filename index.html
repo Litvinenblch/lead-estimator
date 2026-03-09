@@ -18,9 +18,7 @@
     --muted: #6b7a6d;
     --card: #1c1f1d;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -28,8 +26,6 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
-  /* Grid background */
   body::before {
     content: '';
     position: fixed;
@@ -41,7 +37,6 @@
     pointer-events: none;
     z-index: 0;
   }
-
   .app {
     position: relative;
     z-index: 1;
@@ -49,780 +44,163 @@
     margin: 0 auto;
     padding: 40px 24px 80px;
   }
-
-  /* Header */
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 48px;
   }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
+  .logo { display: flex; align-items: center; gap: 12px; }
   .logo-mark {
     width: 36px; height: 36px;
     background: var(--accent);
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800;
-    color: #0d0f0e;
-    font-size: 14px;
-    letter-spacing: -0.5px;
+    font-weight: 800; color: #0d0f0e; font-size: 14px; letter-spacing: -0.5px;
   }
-
-  .logo-text {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-  }
-
-  .logo-sub {
-    font-size: 10px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 1px;
-  }
-
+  .logo-text { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; }
+  .logo-sub { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
   .status-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 6px 14px;
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
+    display: flex; align-items: center; gap: 6px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted);
   }
-
-  .status-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  /* Main input area */
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
   .input-section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
-    transition: border-color 0.2s;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px; margin-bottom: 24px; transition: border-color 0.2s;
   }
-
-  .input-section:focus-within {
-    border-color: rgba(184,245,90,0.4);
-  }
-
+  .input-section:focus-within { border-color: rgba(184,245,90,0.4); }
   .input-label {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
   }
-
-  .input-label::before {
-    content: '';
-    display: inline-block;
-    width: 3px; height: 12px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-
+  .input-label::before { content: ''; display: inline-block; width: 3px; height: 12px; background: var(--accent); border-radius: 2px; }
   textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    resize: none;
-    min-height: 100px;
+    width: 100%; background: transparent; border: none; outline: none;
+    color: var(--text); font-family: 'Syne', sans-serif; font-size: 16px;
+    line-height: 1.6; resize: none; min-height: 100px;
   }
-
-  textarea::placeholder {
-    color: var(--muted);
-  }
-
+  textarea::placeholder { color: var(--muted); }
   .input-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
   }
-
-  .char-count {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-  }
-
+  .char-count { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
   .analyze-btn {
-    background: var(--accent);
-    color: #0d0f0e;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 28px;
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    letter-spacing: -0.2px;
+    background: var(--accent); color: #0d0f0e; border: none; border-radius: 10px;
+    padding: 12px 28px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 8px; letter-spacing: -0.2px;
   }
-
-  .analyze-btn:hover {
-    background: #c9ff6a;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(184,245,90,0.25);
-  }
-
-  .analyze-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-
-  .analyze-btn .spinner {
-    width: 14px; height: 14px;
-    border: 2px solid rgba(0,0,0,0.3);
-    border-top-color: #0d0f0e;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    display: none;
-  }
-
+  .analyze-btn:hover { background: #c9ff6a; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,245,90,0.25); }
+  .analyze-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .analyze-btn .spinner { width: 14px; height: 14px; border: 2px solid rgba(0,0,0,0.3); border-top-color: #0d0f0e; border-radius: 50%; animation: spin 0.8s linear infinite; display: none; }
   .analyze-btn.loading .spinner { display: block; }
   .analyze-btn.loading .btn-text { display: none; }
-
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Quick examples */
-  .examples {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 32px;
-  }
-
+  .examples { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
   .example-chip {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 6px 14px;
-    font-size: 12px;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    font-family: 'DM Mono', monospace;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+    padding: 6px 14px; font-size: 12px; color: var(--muted); cursor: pointer;
+    transition: all 0.15s; font-family: 'DM Mono', monospace;
   }
-
-  .example-chip:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* Result card */
+  .example-chip:hover { border-color: var(--accent); color: var(--accent); }
   .result-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    animation: slideUp 0.3s ease;
-    display: none;
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; margin-bottom: 20px; animation: slideUp 0.3s ease; display: none;
   }
-
   .result-card.visible { display: block; }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Scenario badge */
-  .scenario-header {
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .scenario-badge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 15px;
-  }
-
-  .scenario-icon {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
-  }
-
+  @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .scenario-header { padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .scenario-badge { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+  .scenario-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
   .scenario-1 .scenario-icon { background: rgba(184,245,90,0.15); }
   .scenario-1 .scenario-label { color: var(--accent); }
   .scenario-2 .scenario-icon { background: rgba(255,179,71,0.15); }
   .scenario-2 .scenario-label { color: var(--warn); }
   .scenario-3 .scenario-icon { background: rgba(255,90,90,0.15); }
   .scenario-3 .scenario-label { color: var(--danger); }
-
-  .confidence-bar-wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .confidence-label {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-  }
-
-  .confidence-bar {
-    width: 80px;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .confidence-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: width 0.6s ease;
-  }
-
-  /* Result body */
-  .result-body {
-    padding: 24px;
-  }
-
-  /* Price display */
-  .price-display {
-    margin-bottom: 24px;
-  }
-
-  .price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  .price-value {
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: -2px;
-    color: var(--accent);
-    line-height: 1;
-  }
-
-  .price-range {
-    font-size: 16px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-  }
-
-  .price-note {
-    font-size: 12px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    margin-top: 4px;
-  }
-
-  /* Info grid */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .info-cell {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-  }
-
-  .info-cell-label {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 6px;
-  }
-
-  .info-cell-value {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  /* Response text */
-  .response-section {
-    margin-bottom: 24px;
-  }
-
-  .section-title {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .section-title::before {
-    content: '';
-    display: inline-block;
-    width: 3px; height: 10px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-
-  .response-text {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--text);
-    white-space: pre-wrap;
-  }
-
-  /* Tags */
-  .tags-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag {
-    background: rgba(184,245,90,0.08);
-    border: 1px solid rgba(184,245,90,0.2);
-    border-radius: 6px;
-    padding: 4px 10px;
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--accent);
-  }
-
-  /* Copy button */
-  .copy-btn {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 18px;
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
+  .confidence-bar-wrap { display: flex; align-items: center; gap: 10px; }
+  .confidence-label { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
+  .confidence-bar { width: 80px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .confidence-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.6s ease; }
+  .result-body { padding: 24px; }
+  .price-display { margin-bottom: 24px; }
+  .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .price-value { font-size: 42px; font-weight: 800; letter-spacing: -2px; color: var(--accent); line-height: 1; }
+  .price-range { font-size: 16px; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .price-note { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; margin-top: 4px; }
+  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .info-cell { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .info-cell-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+  .info-cell-value { font-size: 14px; font-weight: 600; color: var(--text); }
+  .response-section { margin-bottom: 24px; }
+  .section-title { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-title::before { content: ''; display: inline-block; width: 3px; height: 10px; background: var(--accent); border-radius: 2px; }
+  .response-text { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; font-size: 14px; line-height: 1.7; color: var(--text); white-space: pre-wrap; }
+  .tags-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: rgba(184,245,90,0.08); border: 1px solid rgba(184,245,90,0.2); border-radius: 6px; padding: 4px 10px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--accent); }
+  .copy-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
   .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-  .result-footer {
-    padding: 16px 24px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  /* History */
+  .result-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
   .history-section { margin-top: 32px; }
-
-  .history-title {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .clear-btn {
-    background: none;
-    border: none;
-    color: var(--muted);
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
+  .history-title { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+  .clear-btn { background: none; border: none; color: var(--muted); font-size: 11px; font-family: 'DM Mono', monospace; cursor: pointer; text-decoration: underline; }
   .history-list { display: flex; flex-direction: column; gap: 8px; }
-
-  .history-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: border-color 0.15s;
-    gap: 16px;
-  }
-
+  .history-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: border-color 0.15s; gap: 16px; }
   .history-item:hover { border-color: var(--muted); }
-
-  .history-query {
-    font-size: 13px;
-    color: var(--text);
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .history-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .history-scenario {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    padding: 3px 8px;
-    border-radius: 4px;
-    background: var(--border);
-    color: var(--muted);
-  }
-
-  .history-price {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    font-family: 'DM Mono', monospace;
-  }
-
-  .history-time {
-    font-size: 10px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* Error */
-  .error-banner {
-    background: rgba(255,90,90,0.1);
-    border: 1px solid rgba(255,90,90,0.3);
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 13px;
-    color: var(--danger);
-    margin-bottom: 16px;
-    display: none;
-  }
-
+  .history-query { font-size: 13px; color: var(--text); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .history-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .history-scenario { font-size: 10px; font-family: 'DM Mono', monospace; padding: 3px 8px; border-radius: 4px; background: var(--border); color: var(--muted); }
+  .history-price { font-size: 13px; font-weight: 700; color: var(--accent); font-family: 'DM Mono', monospace; }
+  .history-time { font-size: 10px; color: var(--muted); font-family: 'DM Mono', monospace; }
+  .error-banner { background: rgba(255,90,90,0.1); border: 1px solid rgba(255,90,90,0.3); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--danger); margin-bottom: 16px; display: none; }
   .error-banner.visible { display: block; }
-
-  /* Loading skeleton */
-  .skeleton {
-    background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-    border-radius: 6px;
-  }
-
-  @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
-  /* Photo upload */
-  .photo-upload-area {
-    border: 1.5px dashed var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-top: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--surface);
-  }
-
-  .photo-upload-area:hover, .photo-upload-area.drag-over {
-    border-color: var(--accent);
-    background: rgba(184,245,90,0.04);
-  }
-
-  .photo-upload-icon {
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  .photo-upload-text {
-    font-size: 12px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    line-height: 1.5;
-  }
-
-  .photo-upload-text strong {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
+  .photo-upload-area { border: 1.5px dashed var(--border); border-radius: 10px; padding: 16px; margin-top: 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 12px; background: var(--surface); }
+  .photo-upload-area:hover, .photo-upload-area.drag-over { border-color: var(--accent); background: rgba(184,245,90,0.04); }
+  .photo-upload-icon { font-size: 22px; flex-shrink: 0; }
+  .photo-upload-text { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; line-height: 1.5; }
+  .photo-upload-text strong { color: var(--accent); font-weight: 500; }
   #photoFileInput { display: none; }
-
-  /* Photo previews */
-  .photo-previews {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 12px;
-  }
-
-  .photo-thumb {
-    position: relative;
-    width: 72px; height: 72px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-
-  .photo-thumb img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .photo-thumb-remove {
-    position: absolute;
-    top: 3px; right: 3px;
-    width: 18px; height: 18px;
-    background: rgba(0,0,0,0.7);
-    border: none;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 10px;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    line-height: 1;
-  }
-
+  .photo-previews { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .photo-thumb { position: relative; width: 72px; height: 72px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; }
+  .photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-thumb-remove { position: absolute; top: 3px; right: 3px; width: 18px; height: 18px; background: rgba(0,0,0,0.7); border: none; border-radius: 50%; color: #fff; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
   .photo-thumb-remove:hover { background: var(--danger); }
-
-  .photo-count-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(184,245,90,0.12);
-    border: 1px solid rgba(184,245,90,0.25);
-    border-radius: 6px;
-    padding: 3px 8px;
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    color: var(--accent);
-    margin-left: 8px;
-  }
-
-  @media (max-width: 600px) {
-    .info-grid { grid-template-columns: repeat(2, 1fr); }
-    .price-value { font-size: 32px; }
-  }
-
-  /* Slack panel */
-  .slack-panel {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    margin-bottom: 24px;
-    overflow: hidden;
-  }
-
-  .slack-panel-header {
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.15s;
-  }
-
+  .photo-count-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(184,245,90,0.12); border: 1px solid rgba(184,245,90,0.25); border-radius: 6px; padding: 3px 8px; font-size: 10px; font-family: 'DM Mono', monospace; color: var(--accent); margin-left: 8px; }
+  @media (max-width: 600px) { .info-grid { grid-template-columns: repeat(2, 1fr); } .price-value { font-size: 32px; } }
+  .slack-panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 24px; overflow: hidden; }
+  .slack-panel-header { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; transition: background 0.15s; }
   .slack-panel-header:hover { background: rgba(255,255,255,0.02); }
-
-  .slack-panel-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .slack-icon {
-    width: 26px; height: 26px;
-    border-radius: 6px;
-    background: #4a154b;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-  }
-
-  .slack-panel-toggle {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    transition: transform 0.2s;
-  }
-
+  .slack-panel-title { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
+  .slack-icon { width: 26px; height: 26px; border-radius: 6px; background: #4a154b; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .slack-panel-toggle { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; transition: transform 0.2s; }
   .slack-panel.open .slack-panel-toggle { transform: rotate(180deg); }
-
-  .slack-panel-body {
-    padding: 0 20px 20px;
-    display: none;
-    border-top: 1px solid var(--border);
-    padding-top: 18px;
-  }
-
+  .slack-panel-body { padding: 0 20px 20px; display: none; border-top: 1px solid var(--border); padding-top: 18px; }
   .slack-panel.open .slack-panel-body { display: block; }
-
-  .slack-form-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .slack-input {
-    flex: 1;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-
+  .slack-form-row { display: flex; gap: 10px; margin-bottom: 12px; }
+  .slack-input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 12px; outline: none; transition: border-color 0.15s; }
   .slack-input:focus { border-color: rgba(184,245,90,0.4); }
   .slack-input::placeholder { color: var(--muted); }
-
-  .slack-load-btn {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 18px;
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-    display: flex; align-items: center; gap: 6px;
-  }
-
+  .slack-load-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; color: var(--text); font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
   .slack-load-btn:hover { border-color: var(--accent); color: var(--accent); }
   .slack-load-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .slack-status {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    margin-top: 10px;
-    min-height: 16px;
-  }
-
+  .slack-status { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); margin-top: 10px; min-height: 16px; }
   .slack-status.ok { color: var(--accent); }
   .slack-status.err { color: var(--danger); }
-
-  .slack-examples-preview {
-    margin-top: 14px;
-    display: none;
-  }
-
+  .slack-examples-preview { margin-top: 14px; display: none; }
   .slack-examples-preview.visible { display: block; }
-
-  .slack-example-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
+  .slack-example-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); line-height: 1.5; }
   .slack-example-item strong { color: var(--text); font-weight: 500; }
   .slack-example-item .ex-price { color: var(--accent); }
-
-  .slack-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(74,21,75,0.4);
-    border: 1px solid rgba(184,245,90,0.2);
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    color: var(--accent);
-    margin-left: 8px;
-  }
+  .slack-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(74,21,75,0.4); border: 1px solid rgba(184,245,90,0.2); border-radius: 6px; padding: 2px 8px; font-size: 10px; font-family: 'DM Mono', monospace; color: var(--accent); margin-left: 8px; }
 </style>
 </head>
 <body>
 <div class="app">
-
   <header>
     <div class="logo">
       <div class="logo-mark">PH</div>
@@ -836,9 +214,6 @@
       AI online
     </div>
   </header>
-
-
-  <!-- Slack Learning Panel -->
   <div class="slack-panel" id="slackPanel">
     <div class="slack-panel-header" onclick="toggleSlack()">
       <div class="slack-panel-title">
@@ -864,12 +239,9 @@
       <div class="slack-examples-preview" id="slackPreview"></div>
     </div>
   </div>
-
   <div class="input-section">
     <div class="input-label">Запрос клиента</div>
     <textarea id="queryInput" rows="4" placeholder="Вставьте текст запроса от клиента — из Yelp, Slack, SMS или звонка..."></textarea>
-
-    <!-- Photo upload -->
     <input type="file" id="photoFileInput" accept="image/*" multiple onchange="handlePhotoSelect(event)">
     <div class="photo-upload-area" id="photoUploadArea" onclick="document.getElementById('photoFileInput').click()">
       <div class="photo-upload-icon">📷</div>
@@ -887,7 +259,6 @@
       </button>
     </div>
   </div>
-
   <div class="examples">
     <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;align-self:center;">Примеры:</span>
     <div class="example-chip" onclick="setExample('Need to replace a leaky faucet in the kitchen')">Замена крана</div>
@@ -897,9 +268,7 @@
     <div class="example-chip" onclick="setExample('Need a handyman for a few small fixes around the house')">Handyman</div>
     <div class="example-chip" onclick="setExample('Install 3 recessed lights in bedroom')">Recessed lights</div>
   </div>
-
   <div class="error-banner" id="errorBanner"></div>
-
   <div class="result-card" id="resultCard">
     <div class="scenario-header" id="scenarioHeader">
       <div class="scenario-badge" id="scenarioBadge">
@@ -913,7 +282,6 @@
         </div>
       </div>
     </div>
-
     <div class="result-body">
       <div class="price-display" id="priceDisplay">
         <div class="price-row">
@@ -922,7 +290,6 @@
         </div>
         <div class="price-note" id="priceNote"></div>
       </div>
-
       <div class="info-grid" id="infoGrid">
         <div class="info-cell">
           <div class="info-cell-label">Тип работ</div>
@@ -937,23 +304,19 @@
           <div class="info-cell-value" id="rateType">—</div>
         </div>
       </div>
-
       <div class="response-section">
         <div class="section-title">Ответ клиенту</div>
         <div class="response-text" id="responseText">—</div>
       </div>
-
       <div>
         <div class="section-title">Теги</div>
         <div class="tags-row" id="tagsRow"></div>
       </div>
     </div>
-
     <div class="result-footer">
       <button class="copy-btn" onclick="copyResponse()">📋 Копировать ответ</button>
     </div>
   </div>
-
   <div class="history-section" id="historySection" style="display:none">
     <div class="history-title">
       История
@@ -961,28 +324,22 @@
     </div>
     <div class="history-list" id="historyList"></div>
   </div>
-
 </div>
-
 <script>
 const SYSTEM_PROMPT = `You are Lead Estimator AI for Proper Hour Home Service — a Bay Area home service and remodeling company.
-
 Your job: analyze incoming client requests (text and/or photos) and determine:
 1. The SCENARIO
 2. A PRICE ESTIMATE (if possible)
 3. A CLIENT RESPONSE in English (short, friendly, professional)
-
 When photos are provided, analyze them carefully:
 - Identify the type of damage, condition, scope of work visible
 - Note materials, fixtures, square footage if estimable
 - Factor visual complexity into the scenario and price
 - Mention what you see in the "notes" field
-
 SCENARIOS:
 - "quote" — Simple, standard request. You can give a price directly. Triggers: faucet, toilet repair, small fixture, minor repair, handyman task, recessed lights, simple plumbing.
 - "estimator" — Medium complexity. Needs estimator review but can give ballpark. Triggers: multiple items, partial remodel, unclear scope.
 - "site_visit" — Complex or large project. Must visit to quote. Triggers: full remodel, ADU, water damage with unknown scope, structural work.
-
 PRICING RULES (Bay Area market):
 - Base rate: $90/hour (standard)
 - Master rate: $120/hour (multi-trade, complex, high skill)
@@ -990,7 +347,6 @@ PRICING RULES (Bay Area market):
 - Round to nearest $50
 - ALWAYS give ONE final fixed price — never a range. Be decisive. Use the midpoint of your internal estimate.
 - price_display format: "$XXX" — single number only, no dashes, no ranges
-
 PRICE BENCHMARKS (use midpoint as final price):
 - Replace kitchen/bath faucet: $300 (includes valves + supply lines)
 - Toilet repair (running/flapper): $175
@@ -1004,28 +360,20 @@ PRICE BENCHMARKS (use midpoint as final price):
 - Bathroom remodel basic: $11,000 (labor only)
 - Flooring removal + install (per 100sf): $500
 - Drywall patch (small): $275
-
 MESSAGE STYLE for client response — use this EXACT format:
-
 Hi! Here's our estimate for your project:
-
 What we'll do:
 - [specific task 1]
 - [specific task 2]
 - [specific task 3 if needed]
-
 Total: $XXX
-This includes [labor + materials explanation — e.g. labor, angle stop valves, supply lines, and drain assembly].
-
+This includes [labor + materials explanation].
 Let us know if that works — we'd be happy to schedule!
-
 Rules:
-- Each task line must be concrete (e.g. "Replace kitchen faucet", "Install 2 new angle stop valves", "Replace P-trap and drain")
+- Each task line must be concrete
 - Total dollar amount must match price_display exactly
-- The explanation after Total clearly states what is included (labor, materials, specific parts)
-- For estimator scenario: give ballpark total, note it needs estimator review before finalizing
-- For site_visit: skip the price line, explain a visit is needed to assess properly
-
+- For estimator scenario: give ballpark total, note it needs estimator review
+- For site_visit: skip the price line, explain a visit is needed
 Respond ONLY with a JSON object, no markdown:
 {
   "scenario": "quote" | "estimator" | "site_visit",
@@ -1036,15 +384,25 @@ Respond ONLY with a JSON object, no markdown:
   "time_estimate": "e.g. 1-2 hrs",
   "rate": "Standard $90/hr" | "Master $120/hr" | "N/A",
   "tags": ["tag1", "tag2"],
-  "response": "Full formatted client response using the structure above",
-  "notes": "Internal note for manager (1 line, include photo observations if photos provided)"
+  "response": "Full formatted client response",
+  "notes": "Internal note for manager"
 }
-
 {SLACK_EXAMPLES}`;
 
+// ── PROXY HELPER ─────────────────────────────────────────────
+// All Anthropic API calls go through Netlify Function to avoid CORS
+async function callAnthropic(payload) {
+  const resp = await fetch('/.netlify/functions/anthropic', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  if (!resp.ok) throw new Error(`Anthropic proxy error: ${resp.status}`);
+  return resp.json();
+}
 
 // ── SLACK INTEGRATION ──────────────────────────────────────
-let slackExamples = []; // parsed examples from Slack
+let slackExamples = [];
 
 function toggleSlack() {
   document.getElementById('slackPanel').classList.toggle('open');
@@ -1054,12 +412,10 @@ async function loadSlack() {
   const token = document.getElementById('slackToken').value.trim();
   const channelRaw = document.getElementById('slackChannel').value.trim();
   const channel = channelRaw.replace('#', '');
-
   if (!token || !channel) {
     setSlackStatus('Введи токен и название канала', 'err');
     return;
   }
-
   const btn = document.getElementById('slackLoadBtn');
   const btnText = document.getElementById('slackBtnText');
   const spinner = document.getElementById('slackSpinner');
@@ -1069,8 +425,6 @@ async function loadSlack() {
   setSlackStatus('Подключаемся к Slack...', '');
 
   try {
-    // Step 1: get channel ID
-    // proxy через Netlify Function чтобы обойти CORS
     const proxyCall = async (path, params) => {
       const resp = await fetch('/.netlify/functions/slack', {
         method: 'POST',
@@ -1080,7 +434,6 @@ async function loadSlack() {
       return resp.json();
     };
 
-    // Если введён ID (начинается с C, G, D) — используем напрямую, иначе ищем по имени
     let channelId;
     if (/^[CGDW]/i.test(channel)) {
       channelId = channel;
@@ -1089,33 +442,26 @@ async function loadSlack() {
       const listData = await proxyCall('conversations.list', { limit: 200, types: 'public_channel,private_channel' });
       if (!listData.ok) throw new Error('Не удалось получить список каналов: ' + listData.error);
       const found = listData.channels.find(c => c.name === channel || c.name_normalized === channel);
-      if (!found) throw new Error(`Канал #${channel} не найден. Попробуй вставить Channel ID (C07U64YGHE2).`);
+      if (!found) throw new Error(`Канал #${channel} не найден. Попробуй вставить Channel ID.`);
       channelId = found.id;
     }
-    setSlackStatus('Канал найден, загружаем сообщения...', '');
 
+    setSlackStatus('Канал найден, загружаем сообщения...', '');
     const histData = await proxyCall('conversations.history', { channel: channelId, limit: 200 });
     if (!histData.ok) throw new Error('Ошибка загрузки: ' + histData.error);
-
     const messages = histData.messages || [];
     setSlackStatus(`Загружено ${messages.length} сообщений, анализируем...`, '');
 
-    // Step 3: extract examples via Claude
-    const extractResp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{
-          role: 'user',
-          content: `You are analyzing Slack messages from a home service company estimating channel.
-
+    // Use Anthropic via proxy
+    const extractData = await callAnthropic({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{
+        role: 'user',
+        content: `You are analyzing Slack messages from a home service company estimating channel.
 Extract up to 15 real examples of: client request → price given → scenario type.
-
 Messages:
 ${messages.map(m => m.text).filter(Boolean).join('\n---\n').slice(0, 8000)}
-
 Return ONLY a JSON array, no markdown:
 [
   {
@@ -1125,25 +471,18 @@ Return ONLY a JSON array, no markdown:
     "work_type": "short label"
   }
 ]
-
-Only include messages where a clear request + price/decision is visible. Skip unrelated messages.`
-        }]
-      })
+Only include messages where a clear request + price/decision is visible.`
+      }]
     });
 
-    const extractData = await extractResp.json();
     const rawText = extractData.content.map(i => i.text || '').join('').replace(/```json|```/g, '').trim();
     const examples = JSON.parse(rawText);
-
     slackExamples = examples;
     renderSlackPreview(examples);
-
     const badge = document.getElementById('slackBadge');
     document.getElementById('slackExCount').textContent = examples.length;
     badge.style.display = 'inline-flex';
-
     setSlackStatus(`✓ Загружено ${examples.length} примеров — AI теперь учитывает их при оценке`, 'ok');
-
   } catch (err) {
     setSlackStatus('Ошибка: ' + err.message, 'err');
   }
@@ -1163,21 +502,17 @@ function renderSlackPreview(examples) {
   const preview = document.getElementById('slackPreview');
   preview.innerHTML = '';
   preview.classList.add('visible');
-
   const title = document.createElement('div');
   title.style.cssText = 'font-size:10px;font-family:"DM Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;';
   title.textContent = 'Загруженные примеры';
   preview.appendChild(title);
-
   const scenarioLabel = { quote: '✅', estimator: '📋', site_visit: '🏠' };
-
   examples.slice(0, 6).forEach(ex => {
     const item = document.createElement('div');
     item.className = 'slack-example-item';
     item.innerHTML = `<strong>${ex.work_type || ex.request.slice(0, 40)}</strong> ${scenarioLabel[ex.scenario] || ''} <span class="ex-price">${ex.price || '—'}</span><br>${ex.request}`;
     preview.appendChild(item);
   });
-
   if (examples.length > 6) {
     const more = document.createElement('div');
     more.style.cssText = 'font-size:10px;font-family:"DM Mono",monospace;color:var(--muted);text-align:center;padding:6px;';
@@ -1194,19 +529,15 @@ function buildSlackContext() {
   return `\n\nREAL EXAMPLES FROM YOUR TEAM'S SLACK (use these to calibrate scenario and price for similar requests):\n${lines}`;
 }
 
-// ── END SLACK ───────────────────────────────────────────────
-
+// ── MAIN ANALYZE ───────────────────────────────────────────
 let history = [];
-let uploadedPhotos = []; // Array of { file, base64, mediaType }
+let uploadedPhotos = [];
 
 const queryInput = document.getElementById('queryInput');
-const charCount = document.getElementById('charCount');
-
 queryInput.addEventListener('input', () => {
   document.getElementById('charCount').firstChild.textContent = queryInput.value.length + ' символов ';
 });
 
-// Drag and drop
 const uploadArea = document.getElementById('photoUploadArea');
 uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
 uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
@@ -1220,7 +551,7 @@ uploadArea.addEventListener('drop', e => {
 function handlePhotoSelect(event) {
   const files = Array.from(event.target.files);
   processPhotoFiles(files);
-  event.target.value = ''; // reset so same file can be re-added
+  event.target.value = '';
 }
 
 function processPhotoFiles(files) {
@@ -1248,22 +579,13 @@ function renderPhotoPreviews() {
   const badge = document.getElementById('photoCountBadge');
   const num = document.getElementById('photoCountNum');
   container.innerHTML = '';
-
-  if (uploadedPhotos.length === 0) {
-    badge.style.display = 'none';
-    return;
-  }
-
+  if (uploadedPhotos.length === 0) { badge.style.display = 'none'; return; }
   badge.style.display = 'inline-flex';
   num.textContent = uploadedPhotos.length;
-
   uploadedPhotos.forEach((photo, i) => {
     const thumb = document.createElement('div');
     thumb.className = 'photo-thumb';
-    thumb.innerHTML = `
-      <img src="${photo.preview}" alt="photo ${i+1}">
-      <button class="photo-thumb-remove" onclick="removePhoto(${i})" title="Удалить">✕</button>
-    `;
+    thumb.innerHTML = `<img src="${photo.preview}" alt="photo ${i+1}"><button class="photo-thumb-remove" onclick="removePhoto(${i})" title="Удалить">✕</button>`;
     container.appendChild(thumb);
   });
 }
@@ -1277,55 +599,34 @@ function setExample(text) {
 async function analyze() {
   const query = queryInput.value.trim();
   if (!query && uploadedPhotos.length === 0) return;
-
   const btn = document.getElementById('analyzeBtn');
   const errorBanner = document.getElementById('errorBanner');
   const resultCard = document.getElementById('resultCard');
-
   btn.disabled = true;
   btn.classList.add('loading');
   errorBanner.classList.remove('visible');
   resultCard.classList.remove('visible');
 
   try {
-    // Build message content with optional images
     const userContent = [];
-
-    // Add images first
     uploadedPhotos.forEach(photo => {
-      userContent.push({
-        type: 'image',
-        source: { type: 'base64', media_type: photo.mediaType, data: photo.base64 }
-      });
+      userContent.push({ type: 'image', source: { type: 'base64', media_type: photo.mediaType, data: photo.base64 } });
     });
-
-    // Add text
-    const textPart = query
-      ? `Client request: "${query}"`
-      : 'Please analyze these photos and provide an estimate.';
+    const textPart = query ? `Client request: "${query}"` : 'Please analyze these photos and provide an estimate.';
     userContent.push({ type: 'text', text: textPart });
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT.replace('{SLACK_EXAMPLES}', buildSlackContext()),
-        messages: [{ role: 'user', content: userContent }]
-      })
+    const data = await callAnthropic({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: SYSTEM_PROMPT.replace('{SLACK_EXAMPLES}', buildSlackContext()),
+      messages: [{ role: 'user', content: userContent }]
     });
 
-    if (!response.ok) throw new Error(`API error: ${response.status}`);
-
-    const data = await response.json();
     const text = data.content.map(i => i.text || '').join('');
     const clean = text.replace(/```json|```/g, '').trim();
     const result = JSON.parse(clean);
-
     renderResult(result, query || '[фото]');
     addToHistory(query || '[фото]', result);
-
   } catch (err) {
     errorBanner.textContent = 'Ошибка: ' + err.message;
     errorBanner.classList.add('visible');
@@ -1338,35 +639,26 @@ async function analyze() {
 function renderResult(r, query) {
   const card = document.getElementById('resultCard');
   const header = document.getElementById('scenarioHeader');
-
   header.className = 'scenario-header';
   const badge = document.getElementById('scenarioBadge');
   badge.className = 'scenario-badge';
-
   const icons = { quote: '✅', estimator: '📋', site_visit: '🏠' };
   const labels = { quote: 'Прямая цена', estimator: '→ Эстиматору', site_visit: '→ Выезд' };
   const nums = { quote: '1', estimator: '2', site_visit: '3' };
-
   header.classList.add('scenario-' + nums[r.scenario]);
   badge.classList.add('scenario-' + nums[r.scenario]);
-
   document.getElementById('scenarioIcon').textContent = icons[r.scenario] || '?';
   document.getElementById('scenarioLabel').textContent = labels[r.scenario] || r.scenario;
-
   const conf = r.confidence || 0;
   document.getElementById('confidenceLabel').textContent = conf + '%';
   document.getElementById('confidenceFill').style.width = conf + '%';
-
   document.getElementById('priceValue').textContent = r.price_display || '—';
   document.getElementById('priceRange').textContent = '';
   document.getElementById('priceNote').textContent = r.notes || '';
-
   document.getElementById('workType').textContent = r.work_type || '—';
   document.getElementById('timeEst').textContent = r.time_estimate || '—';
   document.getElementById('rateType').textContent = r.rate || '—';
-
   document.getElementById('responseText').textContent = r.response || '—';
-
   const tagsRow = document.getElementById('tagsRow');
   tagsRow.innerHTML = '';
   (r.tags || []).forEach(t => {
@@ -1375,7 +667,6 @@ function renderResult(r, query) {
     tag.textContent = t;
     tagsRow.appendChild(tag);
   });
-
   card.classList.add('visible');
 }
 
@@ -1390,13 +681,7 @@ function copyResponse() {
 }
 
 function addToHistory(query, result) {
-  const entry = {
-    query,
-    scenario: result.scenario,
-    price: result.price_display,
-    time: new Date().toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' }),
-    result
-  };
+  const entry = { query, scenario: result.scenario, price: result.price_display, time: new Date().toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' }), result };
   history.unshift(entry);
   if (history.length > 10) history.pop();
   renderHistory();
@@ -1405,13 +690,10 @@ function addToHistory(query, result) {
 function renderHistory() {
   const section = document.getElementById('historySection');
   const list = document.getElementById('historyList');
-
   if (history.length === 0) { section.style.display = 'none'; return; }
   section.style.display = 'block';
   list.innerHTML = '';
-
   const labels = { quote: '✅ цена', estimator: '📋 эстим.', site_visit: '🏠 выезд' };
-
   history.forEach((entry) => {
     const item = document.createElement('div');
     item.className = 'history-item';
@@ -1420,22 +702,12 @@ function renderHistory() {
       renderResult(entry.result, entry.query);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-    item.innerHTML = `
-      <div class="history-query">${entry.query}</div>
-      <div class="history-meta">
-        <span class="history-scenario">${labels[entry.scenario] || entry.scenario}</span>
-        <span class="history-price">${entry.price || '—'}</span>
-        <span class="history-time">${entry.time}</span>
-      </div>
-    `;
+    item.innerHTML = `<div class="history-query">${entry.query}</div><div class="history-meta"><span class="history-scenario">${labels[entry.scenario] || entry.scenario}</span><span class="history-price">${entry.price || '—'}</span><span class="history-time">${entry.time}</span></div>`;
     list.appendChild(item);
   });
 }
 
-function clearHistory() {
-  history = [];
-  renderHistory();
-}
+function clearHistory() { history = []; renderHistory(); }
 
 queryInput.addEventListener('keydown', e => {
   if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) analyze();
