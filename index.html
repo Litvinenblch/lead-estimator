@@ -1080,13 +1080,18 @@ async function loadSlack() {
       return resp.json();
     };
 
-    const listData = await proxyCall('conversations.list', { limit: 200, types: 'public_channel,private_channel' });
-    if (!listData.ok) throw new Error('Не удалось получить список каналов: ' + listData.error);
-
-    const found = listData.channels.find(c => c.name === channel || c.name_normalized === channel);
-    if (!found) throw new Error(`Канал #${channel} не найден. Проверь название и права бота.`);
-
-    const channelId = found.id;
+    // Если введён ID (начинается с C, G, D) — используем напрямую, иначе ищем по имени
+    let channelId;
+    if (/^[CGDW]/i.test(channel)) {
+      channelId = channel;
+      setSlackStatus('Используем Channel ID напрямую...', '');
+    } else {
+      const listData = await proxyCall('conversations.list', { limit: 200, types: 'public_channel,private_channel' });
+      if (!listData.ok) throw new Error('Не удалось получить список каналов: ' + listData.error);
+      const found = listData.channels.find(c => c.name === channel || c.name_normalized === channel);
+      if (!found) throw new Error(`Канал #${channel} не найден. Попробуй вставить Channel ID (C07U64YGHE2).`);
+      channelId = found.id;
+    }
     setSlackStatus('Канал найден, загружаем сообщения...', '');
 
     const histData = await proxyCall('conversations.history', { channel: channelId, limit: 200 });
