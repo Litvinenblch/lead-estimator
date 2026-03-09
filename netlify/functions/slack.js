@@ -2,6 +2,7 @@ exports.handler = async (event) => {
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'
   };
 
@@ -9,14 +10,22 @@ exports.handler = async (event) => {
     return { statusCode: 200, headers, body: '' };
   }
 
-  const { token, path, params } = JSON.parse(event.body);
-  const query = new URLSearchParams(params).toString();
-  const url = `https://slack.com/api/${path}?${query}`;
+  if (!event.body) {
+    return { statusCode: 400, headers, body: JSON.stringify({ error: 'No body' }) };
+  }
 
-  const resp = await fetch(url, {
-    headers: { 'Authorization': `Bearer ${token}` }
-  });
-  const data = await resp.json();
+  try {
+    const { token, path, params } = JSON.parse(event.body);
+    const query = new URLSearchParams(params).toString();
+    const url = `https://slack.com/api/${path}?${query}`;
 
-  return { statusCode: 200, headers, body: JSON.stringify(data) };
+    const resp = await fetch(url, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    const data = await resp.json();
+
+    return { statusCode: 200, headers, body: JSON.stringify(data) };
+  } catch (err) {
+    return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
+  }
 };
